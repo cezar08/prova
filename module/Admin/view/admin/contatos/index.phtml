@@ -1,0 +1,39 @@
+<button class="btn btn-success" onclick="location.href='/admin/contatos/save'">Novo contato</button>
+
+<table class="table">
+    <thead>
+    <tr>
+        <td>Id</td><td>Nome</td><td>Sobrenome</td><td>E-mail</td><td>Data de nascimento</td>
+    </tr>
+    </thead>
+    <tbody>
+        <?php foreach($contatos as $contato) {
+        ?>
+            <tr>
+                <td>
+                    <?php echo $contato->getId(); ?>
+                </td>
+                <td>
+                    <?php echo $contato->getNome(); ?>
+                </td>
+                <td>
+                    <?php echo $contato->getSobrenome(); ?>
+                </td>
+                <td>
+                    <?php echo $contato->getEmail(); ?>
+                </td>
+                <td>
+                    <?php echo $contato->getDataNasc()->format('d/m/Y'); ?>
+                </td>
+                <td>
+                    <a href="/admin/contatos/save/id/<?php echo $contato->getId(); ?>">Editar</a>
+                </td>
+                <td>
+                    <a href="/admin/contatos/delete/id/<?php echo $contato->getId(); ?>">Excluir</a>
+                </td>
+            </tr>
+        <?php }
+        ?>
+    </tbody>
+
+</table>

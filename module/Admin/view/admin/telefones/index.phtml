@@ -1,0 +1,36 @@
+<button class="btn btn-success" onclick="location.href='/admin/telefones/save'">Novo telefone</button>
+
+<table class="table">
+    <thead>
+    <tr>
+        <td>Id</td><td>Contato</td><td>Número</td><td>Tipo de Telefone</td>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($telefones as $telefone) {
+        ?>
+        <tr>
+            <td>
+                <?php echo $telefone->getId(); ?>
+            </td>
+            <td>
+                <?php echo $telefone->getContato()->getNome(); ?>
+            </td>
+            <td>
+                <?php echo $telefone->getNumero(); ?>
+            </td>
+            <td>
+                <?php echo $telefone->getTipoDeTelefone()->getDescricao(); ?>
+            </td>
+            <td>
+                <a href="/admin/telefones/save/id/<?php echo $telefone->getId(); ?>">Editar</a>
+            </td>
+            <td>
+                <a href="/admin/telefones/delete/id/<?php echo $telefone->getId(); ?>">Excluir</a>
+            </td>
+        </tr>
+    <?php }
+    ?>
+    </tbody>
+
+</table>
